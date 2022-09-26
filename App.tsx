@@ -1,39 +1,25 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
+import 'react-native-gesture-handler';
 import React from 'react';
-import type {Node} from 'react';
+import {StyleSheet, SafeAreaView, StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {Home} from './Screens/HomeScreen';
+import DrawerNavigator from './navigation/DrawerNavigator';
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Screen1 from './Screens/Screen1';
-import Screen2 from './Screens/Screen2';
-import Screen3 from './Screens/Screen3';
-import Screen4 from './Screens/Screen4';
-
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-
-const App: () => Node = () => {
-  const Tab = createBottomTabNavigator();
-
+const App = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Screen 1" component={Screen1} />
-        <Tab.Screen name="Screen 2" component={Screen2} />
-        <Tab.Screen name="Screen 3" component={Screen3} />
-        <Tab.Screen name="Screen 4" component={Screen4} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={styles.safeArea}>
+      <StatusBar barStyle={'dark-content'} />
+      <NavigationContainer>
+        <DrawerNavigator />
+      </NavigationContainer>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    overflow: 'hidden',
+  },
+});
 
 export default App;
