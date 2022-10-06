@@ -1,22 +1,20 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import BottomTab1 from './BottomTab1';
+import BottomTab2 from './BottomTab2';
 
-const Home = () => {
-  <SafeAreaView>
-    <View style={styles.home}>
-      <Text>'Home Screen'</Text>
-    </View>
-    <Button title={'Home Details'} />
-  </SafeAreaView>;
-};
+const Tab = createBottomTabNavigator();
 
-const styles = StyleSheet.create({
-  home: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+function Home() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Tab.Screen name={'BottomTab 1'} component={BottomTab1} />
+      <Tab.Screen name={'BottomTab 2'} component={BottomTab2} />
+    </Tab.Navigator>
+  );
+}
 
 export default Home;
