@@ -6,10 +6,12 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import Home from './navigation/screens/Home';
 import DrawerTab1 from './navigation/screens/DrawerTab1';
 import DrawerTab2 from './navigation/screens/DrawerTab2';
+import {LogBox} from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
 const App = () => {
+  LogBox.ignoreLogs(['Sending']);
   return (
     <NavigationContainer>
       <Drawer.Navigator>
